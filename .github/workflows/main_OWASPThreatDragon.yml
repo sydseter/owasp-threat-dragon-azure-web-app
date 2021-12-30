@@ -49,5 +49,5 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_3b08ec3f244f410db1ba6c303b6f3d06 }}
         images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_47501bc07bf34562b97c341ba79278fc }}/threatdragon/owasp-threat-dragon:${{ github.sha }}'
-        startup-command: export GITHUB_CLIENT_ID=${{CLIENT_ID}};export GITHUB_CLIENT_SECRET=${{CLIENT_SECRET}};export SESSION_ENCRYPTION_KEYS=${{SESSION_ENCRYPTION_KEYS}};export SESSION_SIGNING_KEY=${{SESSION_SIGNING_KEY}};docker run -it --rm -p 3000:3000 -e GITHUB_CLIENT_ID -e GITHUB_CLIENT_SECRET -e SESSION_ENCRYPTION_KEYS -e SESSION_SIGNING_KEY threatdragon/owasp-threat-dragon:stable
+        startup-command: 'export GITHUB_CLIENT_ID=${{CLIENT_ID}};export GITHUB_CLIENT_SECRET=${{CLIENT_SECRET}};export SESSION_ENCRYPTION_KEYS=${{SESSION_ENCRYPTION_KEYS}};export SESSION_SIGNING_KEY=${{SESSION_SIGNING_KEY}};docker run -it --rm -p 3000:3000 -e GITHUB_CLIENT_ID -e GITHUB_CLIENT_SECRET -e SESSION_ENCRYPTION_KEYS -e SESSION_SIGNING_KEY threatdragon/owasp-threat-dragon:stable'
           
