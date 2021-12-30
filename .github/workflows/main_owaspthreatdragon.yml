@@ -21,6 +21,8 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Pull Image from ghcr.io
+      run: docker pull ghcr.io/sydseter/owasp-threat-dragon:stable
     - name: Deploy to Azure Web App
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
