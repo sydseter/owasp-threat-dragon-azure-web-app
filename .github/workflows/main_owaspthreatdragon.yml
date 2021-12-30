@@ -31,7 +31,6 @@ jobs:
       with:
         push: true
         tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_763ec29d3660438f8238b20ed20dac2d }}/owasp-threat-dragon:${{ github.sha }}
-        file: ./Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
