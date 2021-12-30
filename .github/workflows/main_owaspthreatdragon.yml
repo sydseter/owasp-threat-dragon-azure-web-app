@@ -24,7 +24,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Pull Image from ghcr.io
-      run: docker pull ghcr.io/${{ secrets.AzureAppService_ContainerUsername_763ec29d3660438f8238b20ed20dac2d }}/owasp-threat-dragon:stable
+      run: docker pull ghcr.io/sydseter/owasp-threat-dragon:stable
     - name: Deploy to Azure Web App
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
