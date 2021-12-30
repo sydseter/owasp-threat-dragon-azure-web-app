@@ -15,7 +15,11 @@ jobs:
       name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     steps:
-    - name: Set Web App ACR authentication
+    - name: Set Environment variables
+      uses: azure/login@v1
+      with:
+        creds: '${{ secrets.AZURE_CREDENTIALS }}'
+    - name: Set Environment variables
       uses: Azure/appservice-settings@v1
       with:
        app-name: 'owaspthreatdragon'
