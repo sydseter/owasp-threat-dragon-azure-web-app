@@ -10,6 +10,28 @@ on:
   workflow_dispatch:
 
 jobs:
+  build:
+    runs-on: 'ubuntu-latest'
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Log in to registry
+      uses: docker/login-action@v1
+      with:
+        registry: https://index.docker.io/v1/
+        username: ${{ secrets.AzureAppService_ContainerUsername_47501bc07bf34562b97c341ba79278fc }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_f156804f617742e7857c60e046ffd6e6 }}
+
+    - name: Build and push container image to registry
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_47501bc07bf34562b97c341ba79278fc }}/threatdragon/owasp-threat-dragon:${{ github.sha }}
+        file: ./Dockerfile
   deploy:
     runs-on: ubuntu-latest
     environment:
@@ -29,6 +51,4 @@ jobs:
         app-name: 'OWASPThreatDragon'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_3b08ec3f244f410db1ba6c303b6f3d06 }}
-        images: 'threatdragon/owasp-threat-dragon:stable'
-        startup-command: 'docker run -it --rm -p 3000:3000 -e GITHUB_CLIENT_ID -e GITHUB_CLIENT_SECRET -e SESSION_ENCRYPTION_KEYS -e SESSION_SIGNING_KEY threatdragon/owasp-threat-dragon:stable'
-          
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_47501bc07bf34562b97c341ba79278fc }}/threatdragon/owasp-threat-dragon:${{ github.sha }}'          
