@@ -45,10 +45,10 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       env:
-        GITHUB_CLIENT_ID: ${{ CLIENT_ID }};
-        GITHUB_CLIENT_SECRET: ${{ CLIENT_SECRET }}
-        SESSION_ENCRYPTION_KEYS: ${{ SESSION_ENCRYPTION_KEYS }}
-        SESSION_SIGNING_KEY: ${{ SESSION_SIGNING_KEY }}
+        GITHUB_CLIENT_ID: ${{ secrets.CLIENT_ID }};
+        GITHUB_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        SESSION_ENCRYPTION_KEYS: ${{ secrets.SESSION_ENCRYPTION_KEYS }}
+        SESSION_SIGNING_KEY: ${{ secrets.SESSION_SIGNING_KEY }}
       with:
         app-name: 'OWASPThreatDragon'
         slot-name: 'production'
