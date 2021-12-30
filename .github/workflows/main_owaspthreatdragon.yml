@@ -19,7 +19,6 @@ jobs:
       uses: Azure/appservice-settings@v1
       with:
        app-name: 'owaspthreatdragon'
-       resource-group: OWASPThreatDragon
        app-settings-json: |
          [
              {
