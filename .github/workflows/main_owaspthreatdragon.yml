@@ -54,6 +54,11 @@ jobs:
                 "name": "NODE_ENV",
                 "value": "development",
                 "slotSetting": false
+              },
+              {
+                "name": "SESSION_STORE",
+                "value": "local",
+                "slotSetting": false
               }
          ]
     - name: Login to GitHub Container Registry
