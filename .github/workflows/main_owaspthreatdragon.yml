@@ -21,7 +21,7 @@ jobs:
         files: 'app-settings.json'
       env:
         0.value: "${{ secrets.CLIENT_ID }}"
-        1.value: "${{ secrets.GITHUB_CLIENT_SECRET }}"
+        1.value: "${{ secrets.CLIENT_SECRET }}"
         2.value: "${{ secrets.SESSION_ENCRYPTION_KEYS  }}"
         3.value: "${{ secrets.SESSION_SIGNING_KEY  }}"
     - name: Set env
