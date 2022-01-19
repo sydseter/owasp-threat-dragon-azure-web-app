@@ -20,6 +20,7 @@ jobs:
       with:
         creds: '${{ secrets.AZURE_CREDENTIALS }}'
         allow-no-subscriptions: true
+        enable-AzPSSession: true
     - name: Set Environment variables
       uses: Azure/appservice-settings@v1
       with:
