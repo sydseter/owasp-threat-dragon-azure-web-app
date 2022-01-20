@@ -24,6 +24,8 @@ jobs:
         1.value: "${{ secrets.CLIENT_SECRET }}"
         2.value: "${{ secrets.SESSION_ENCRYPTION_KEYS  }}"
         3.value: "${{ secrets.SESSION_SIGNING_KEY  }}"
+        7.value: "${{ secrets.AZURE_STORAGE_ACCOUNT  }}"
+        8.value: "${{ secrets.AZURE_STORAGE_ACCESS_KEY  }}"
     - name: Set env
       run: echo AZURE_APPSETTINGS=$(cat app-settings.json) >> $GITHUB_ENV
     - name: Login to Azure
