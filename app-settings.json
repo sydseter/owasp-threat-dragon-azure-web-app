@@ -33,5 +33,15 @@
         "name": "SESSION_STORE",
         "value": "local",
         "slotSetting": false
+      },
+      {
+        "name": "AZURE_STORAGE_ACCOUNT",
+        "value": "${{ secrets.AZURE_STORAGE_ACCOUNT  }}",
+        "slotSetting": false
+      },
+      {
+        "name": "AZURE_STORAGE_ACCESS_KEY",
+        "value": "${{ secrets.AZURE_STORAGE_ACCESS_KEY }}",
+        "slotSetting": false
       }
  ]
